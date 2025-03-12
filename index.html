@@ -3,13 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입장</title>
+    <title>문자 & 전화 보내기</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; margin: 50px; }
-        h2 { color: #333; font-size: 24px; }
+        body { text-align: center; font-family: Arial, sans-serif; margin: 50px; background-color: black; color: white; }
+        h2 { color: white; }
+        .btn-container { margin-top: 20px; }
+        button {
+            font-size: 18px; 
+            padding: 15px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 200px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .sms-btn { background-color: #007BFF; color: white; }
+        .sms-btn:hover { background-color: #0056b3; }
     </style>
 </head>
 <body>
-    <h2>입장</h2>
+    <h2>문자 보내기</h2>
+    <div class="btn-container">
+        <button class="sms-btn" onclick="sendSMS('히든')">📩 히든 코인</button>
+        <button class="sms-btn" onclick="sendSMS('입장')">📩 텔레그램 단타방 입장</button>
+        <button class="sms-btn" onclick="sendSMS('상담')">📩 포트폴리오 상담</button>
+    </div>
+
+    <script>
+        function sendSMS(message) {
+            window.location.href = "sms:+821039973323?body=" + encodeURIComponent(message); // 사용자의 최신 번호
+        }
+    </script>
 </body>
 </html>
