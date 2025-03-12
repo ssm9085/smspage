@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자 & 전화 보내기</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin: 50px; }
+        h2 { color: #333; }
+        .btn-container { margin-top: 20px; }
+        button {
+            font-size: 18px; 
+            padding: 15px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .sms-btn { background-color: #007BFF; color: white; }
+        .sms-btn:hover { background-color: #0056b3; }
+        .call-btn { background-color: #28a745; color: white; }
+        .call-btn:hover { background-color: #1e7e34; }
+    </style>
+</head>
+<body>
+    <h2>문자 보내기</h2>
+    <div class="btn-container">
+        <button class="sms-btn" onclick="sendSMS('안녕하세요! 관심 있습니다.')">📩 문의하기</button>
+        <button class="sms-btn" onclick="sendSMS('상담을 받고 싶어요!')">📩 상담 신청</button>
+        <button class="sms-btn" onclick="sendSMS('협업 제안 드립니다.')">📩 협업 제안</button>
+        <button class="call-btn" onclick="makeCall()">📞 전화 걸기</button>
+    </div>
+
+    <script>
+        function sendSMS(message) {
+            window.location.href = "sms:+821039973323?body=" + encodeURIComponent(message); // 올바른 번호 수정
+        }
+        function makeCall() {
+            window.location.href = "tel:+821039973323"; // 올바른 번호 수정
+        }
+    </script>
+</body>
+</html>
